@@ -41,8 +41,11 @@
   --font-family-2: "Nunito", sans-serif;
 }
 
+
+
 body {
   font-family: var(--font-family-1);
+
 }
 
 .container {
@@ -55,4 +58,44 @@ body {
     max-width: 43rem;
     margin: 0 1rem;
   }
+
+
+  .menu-content{
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+
+  .summary {
+    flex-direction: column;
+    gap: 2rem;
+   
+  
+  }
+
+  /* modal */
+
+
+  .value-type{
+    flex-direction: column;
+  }
+
+  .btn-value-type{
+    width: 100%;
+  }
+
+  .modal-footer{
+   justify-content: space-between;
+   width: 100%;
+   gap: 1rem;
+  }
+
+  .btn-modal-footer{
+    width: 100%;
+  }
 }
+
+/* 
+FIGMA
+
+https://www.figma.com/file/lCMtXzWDLwx4lA5mswvJPU/%F0%9F%8F%81-Entrega---Control-Finance?node-id=18%3A2 */
