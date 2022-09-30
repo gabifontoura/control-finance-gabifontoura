@@ -16,9 +16,6 @@
     <link rel="stylesheet" href="/styles/modal.css">
     <link rel="stylesheet" href="/styles/animation.css">
 
-
-
-
     <link rel="stylesheet" href="./style.css">
 
 </head>
@@ -48,14 +45,20 @@
         <div class="sum-content box-grey container flex">
 
             <p class="font-text-2-medium">Soma dos valores:</p>
-            <span id="sum-movements"></span> 
+            <span id="sum-movements" class="font-text-2-medium"></span> 
 
         </div>
 
  
        
+        <div class="empty flex container">
+            <p class="no-value font-title-2-bold">Nenhum valor cadastrado</p>
+            <button id="modal-open" class="insert-new-value">Registrar novo valor</button>
+        </div>
      
+
         <ul class="movements-list flex container ">
+
             <!-- <li class="movement box-outiline flex">
                 <p class="movement-value font-text-2-medium">R$ 000</p>
                 <div class="buttons-li">

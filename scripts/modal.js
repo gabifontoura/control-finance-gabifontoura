@@ -1,12 +1,12 @@
 let idAtual = 0
 let valueTypeSelected = 0
 
-function createModal () {
-    
+function createModal() {
+
     const modalWrapper = document.createElement("section")
     const modalContainer = document.createElement("section")
     const modalHeader = document.createElement("div")
-    const h3Register= document.createElement("h3")
+    const h3Register = document.createElement("h3")
     const btnCloseModal = document.createElement("button")
     const mainContent = document.createElement("main")
     const pCalltoAtion = document.createElement("p")
@@ -27,10 +27,10 @@ function createModal () {
     const btnInserir = document.createElement("button")
 
 
-    modalWrapper.classList ='modal-wrapper'
+    modalWrapper.classList = 'modal-wrapper'
     modalContainer.classList = 'modal'
     modalHeader.classList = 'modal-header'
-    h3Register.classList ='font-title-2-bold'
+    h3Register.classList = 'font-title-2-bold'
     btnCloseModal.classList = 'close-modal'
     mainContent.classList = 'modal-main-content flex'
     pCalltoAtion.classList = 'font-body-regular color-grey-2'
@@ -49,18 +49,18 @@ function createModal () {
 
 
 
-    h3Register.innerHTML ='Registro de valor'
-    
-    
+    h3Register.innerHTML = 'Registro de valor'
+
+
     btnCloseModal.id = 'close-modal'
     btnCloseModal.innerText = 'X'
-    btnCloseModal.addEventListener('click',() => {
+    btnCloseModal.addEventListener('click', () => {
         modalWrapper.remove()
     })
 
 
 
-    pCalltoAtion.innerText =  'Digite o valor e em seguida aperte no botão referente ao tipo do valor'
+    pCalltoAtion.innerText = 'Digite o valor e em seguida aperte no botão referente ao tipo do valor'
 
 
     inputValue.placeholder = 'R$ 00,00'
@@ -69,11 +69,11 @@ function createModal () {
     labelValue.innerText = 'Valor'
     labelValue.for = 'input-value'
     pValueType.innerText = 'Tipo de Valor'
-   
 
 
 
- 
+
+
     inputEntrada.type = 'radio'
     inputEntrada.value = '0'
     inputEntrada.name = 'value-type'
@@ -81,12 +81,12 @@ function createModal () {
     labelEntrada.innerText = 'Entrada'
     labelEntrada.for = 1
     labelEntrada.id = 1
- 
-    labelEntrada.addEventListener('click', ({target})=>{
+
+    labelEntrada.addEventListener('click', ({ target }) => {
 
         valueTypeSelected = target.id
         target.classList.add('active')
-        target.nextElementSibling.classList.remove("active")
+        target.nextElementSibling.classList.remove('active')
 
     })
 
@@ -95,41 +95,41 @@ function createModal () {
 
 
     inputSaida.type = 'radio'
-    inputSaida.name ='value-type'
+    inputSaida.name = 'value-type'
     inputSaida.id = 2
     labelSaida.for = 2
     labelSaida.innerText = 'Saída'
     labelSaida.id = 2
 
-    labelSaida.addEventListener('click', ({target})=>{
+    labelSaida.addEventListener('click', ({ target }) => {
 
-      
+
         valueTypeSelected = target.id
         target.classList.add('active')
-        target.previousElementSibling.classList.remove("active")
+        target.previousElementSibling.classList.remove('active')
 
 
     })
 
-   
 
-  
+
+
     btnCancelar.innerText = 'Cancelar'
 
-    btnCancelar.addEventListener('click', ()=>{
+    btnCancelar.addEventListener('click', () => {
         const modalContainer = document.getElementById('modal-wrapper')
         modalContainer.remove()
     })
 
 
 
-    
+
     btnInserir.innerText = 'Inserir valor'
-  
-    btnInserir.addEventListener('click', ()=>{
+
+    btnInserir.addEventListener('click', () => {
 
 
-        const newElement = { 
+        const newElement = {
             id: idAtual,
             value: +inputValue.value,
             categoryID: +valueTypeSelected,
@@ -138,8 +138,14 @@ function createModal () {
         insertedValues.push(newElement)
 
         showMoneyMovement()
-        
+
         totalSum(insertedValues)
+
+        const noValue = document.querySelector('.empty')
+
+        noValue.classList.add('hidden')
+
+
 
         const modalContainer = document.getElementById('modal-wrapper')
         modalContainer.remove()
@@ -148,18 +154,18 @@ function createModal () {
 
 
 
-    modalWrapper.id ='modal-wrapper'
+    modalWrapper.id = 'modal-wrapper'
 
 
-    
-    modalHeader.append(h3Register,btnCloseModal)
-    divValue.append(labelValue,inputValue)
+
+    modalHeader.append(h3Register, btnCloseModal)
+    divValue.append(labelValue, inputValue)
     labelEntrada.append(inputEntrada)
     labelSaida.append(inputSaida)
-    divValueType.append(pValueType,  labelEntrada,labelSaida)
-    divModalFooter.append(btnCancelar,btnInserir)
-    mainContent.append(pCalltoAtion,divValue,divValueType,divModalFooter)
-    modalContainer.append(modalHeader,mainContent)
+    divValueType.append(pValueType, labelEntrada, labelSaida)
+    divModalFooter.append(btnCancelar, btnInserir)
+    mainContent.append(pCalltoAtion, divValue, divValueType, divModalFooter)
+    modalContainer.append(modalHeader, mainContent)
     modalWrapper.append(modalContainer)
 
 
@@ -167,23 +173,42 @@ function createModal () {
 
     return modalWrapper
 
-    
+
 }
 
-function showModal (){
+function showModal() {
 
     const btnOpenModal = document.getElementById('open-modal')
     const mainContainer = document.getElementById('app')
 
-    btnOpenModal.addEventListener('click', function (){
-      const modal = createModal()
-      mainContainer.appendChild(modal)
-   
-  })
+    btnOpenModal.addEventListener('click', function () {
+        const modal = createModal()
+        mainContainer.appendChild(modal)
+
+    })
+
+
+
 }
 
 
 showModal()
+
+  
+const btnNewValue = document.getElementById('modal-open')
+const mainContainer = document.getElementById('app')
+
+
+btnNewValue.addEventListener('click', () => {
+        console.log('cliclo')
+    const modal = createModal()
+    mainContainer.appendChild(modal)
+
+})
+
+
+
+
 
 
 

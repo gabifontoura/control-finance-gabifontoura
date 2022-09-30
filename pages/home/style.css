@@ -70,3 +70,18 @@
     gap: 1rem ;
 }
 
+
+.empty{
+    padding: 1.5rem 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--color-grey-5);
+    border: 1.5px dashed #ADB5BD;
+    border-radius: var(--radius-1);
+    margin-top: 2rem;
+
+}
+
+
+
