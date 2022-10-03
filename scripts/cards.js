@@ -22,11 +22,11 @@ function createMoneyMovement(element){
     btnTrash.addEventListener('click', ()=>{
        
 
-        const finded = insertedValues.find((element) => +element.id === +btnTrash.id) 
+        const found = insertedValues.find((element) => +element.id === +btnTrash.id) 
 
 
-        let findedIndex = insertedValues.findIndex((element)=> element.id == finded.id )
-        insertedValues.splice(findedIndex,1)
+        let foundIndex = insertedValues.findIndex((element)=> element.id == found.id )
+        insertedValues.splice(foundIndex,1)
 
         liMovement.remove()
 
