@@ -82,15 +82,15 @@ function createModal() {
     labelEntrada.for = 1
     labelEntrada.id = 1
 
+    let selected = false
     labelEntrada.addEventListener('click', ({ target }) => {
 
         valueTypeSelected = target.id
         target.classList.add('active')
         target.nextElementSibling.classList.remove('active')
+        selected = true
 
     })
-
-
 
 
 
@@ -107,6 +107,7 @@ function createModal() {
         valueTypeSelected = target.id
         target.classList.add('active')
         target.previousElementSibling.classList.remove('active')
+        selected = true
 
 
     })
@@ -122,14 +123,16 @@ function createModal() {
     })
 
 
-
-
+    
     btnInserir.innerText = 'Inserir valor'
-
+    
     btnInserir.addEventListener('click', () => {
+  
 
+        if(selected ==true && inputValue.value !== ''){
 
-        const newElement = {
+            
+            const newElement = {
             id: idAtual,
             value: +inputValue.value,
             categoryID: +valueTypeSelected,
@@ -150,8 +153,10 @@ function createModal() {
         const modalContainer = document.getElementById('modal-wrapper')
         modalContainer.remove()
 
+        
+    }
     })
-
+    
 
 
     modalWrapper.id = 'modal-wrapper'
@@ -187,8 +192,6 @@ function showModal() {
 
     })
 
-
-
 }
 
 
@@ -200,7 +203,7 @@ const mainContainer = document.getElementById('app')
 
 
 btnNewValue.addEventListener('click', () => {
-        console.log('cliclo')
+
     const modal = createModal()
     mainContainer.appendChild(modal)
 
